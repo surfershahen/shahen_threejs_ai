@@ -60,15 +60,18 @@ const Customizer = () => {
     if (!prompt) return alert("please enter a prompt");
     try {
       SetGeneratingImg(true);
-      const response = await fetch("http://localhost:8080/api/v1/dalle", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt,
-        }),
-      });
+      const response = await fetch(
+        "https://shahen-threejs-ai.onrender.com/api/v1/dalle",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt,
+          }),
+        }
+      );
 
       const data = await response.json();
 
